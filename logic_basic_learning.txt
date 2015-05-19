@@ -4,4 +4,5 @@ How JARVIS learns:
     2) Goes through each word of sentences and checks for same or similar words using word databases {ie. thesaruses)
     3) Once none similar words between two sentences are found then those are "marked" for count
     4) If any words {ie. 1 word} differ between the two sentences in definition then go to 6
-    5) If 
+    5) If all words are similar in amount, then 2 texts are identical in definiton
+    6) If the extra 1 or greater amount of words are similar to the synonyms of "no, not, or never", then classify sentence as opposite of other sentence.
