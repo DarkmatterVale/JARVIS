@@ -1,1 +1,7 @@
 How JARVIS learns:
+  How JARVIS can recognize differences in two text.
+    1) If x {value amount of words in first text} is greater than y {value amount of words in seond text}
+    2) Goes through each word of sentences and checks for same or similar words using word databases {ie. thesaruses)
+    3) Once none similar words between two sentences are found then those are "marked" for count
+    4) If any words {ie. 1 word} differ between the two sentences in definition then go to 6
+    5) If 
