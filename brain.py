@@ -3,6 +3,7 @@ __author__ = 'Vale Tolpegin & Matthew Nguyen'
 import sys
 import subprocess
 import os
+import json
 
 # This program is the main brain of JARVIS
 # This is extended into submodules in the following ways:
@@ -24,9 +25,11 @@ class brain:
         global user_gone
         
         # If the user was previously gone, but has started the conversation back up, greet him
+        # TODO: convert hardcoded gretting to something more dynamic
         if user_gone:
             print "Hello again sir"
             user_gone = False
+            return
         
         # Test for whether user wants to quit program...currently, this is hardcoded
         # TODO: convert hardcoded quit commands to dictionary synonyms of "no"
@@ -39,7 +42,7 @@ class brain:
             print "Ok, bye sir"
             user_gone = True
             
-            return False
+            return
 
         print "Sorry sir, but I am still learning. I will save this phrase and learn it as time goes on"
 
