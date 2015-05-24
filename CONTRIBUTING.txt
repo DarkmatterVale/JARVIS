@@ -1,0 +1,10 @@
+If you would like to contribute, please follow the below guidelines. Thanks for the help!
+
+1: Look through the code and the wiki, and get a rough idea of our code styling. When you contribute, it will be key to style
+your code in a way that we will be able to understand ( and others can understand as well )
+2: Make something useful! No one wants to see an addition that will let JARVIS make toilet flushing noises
+3: Have fun! JARVIS should be able to talk to you like a human, and he should help make you more productive
+
+Thanks again for the help!
+
+Note: We do reserve the right to not merge any PRs we do not like
