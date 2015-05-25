@@ -4,7 +4,7 @@ import sys
 import subprocess
 import os
 import json
-import re
+from textblob import TextBlob
 
 # This program is the main brain of JARVIS
 # This is extended into submodules in the following ways:
@@ -41,7 +41,7 @@ class brain:
         # If user-entered command is saying good bye to JARVIS, or the user wants JARVIS to "stop" paying attention to him
         # TODO: convert hardcoded commands into dictionary synonyms of "bye"
         if 'bye' in command or 'see ya later' in command:
-            print "Ok, bye sir"
+            print "Bye sir"
             
             user_gone = True
             return
@@ -77,6 +77,8 @@ class brain:
             file.close()
 
             # Telling the user the phrase has been saved
+            command_textblob = TextBlob( "Hi my name is Jarvis!" )
+            print command_textblob.tags
             print "The phrase has been saved"
 
     # This method will find a phrase that is synonymous to the incoming phrase, making it look like JARVIS has some random behavior
