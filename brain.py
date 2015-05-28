@@ -77,14 +77,16 @@ class brain:
             file.close()
 
             # Telling the user the phrase has been saved
-            command_textblob = TextBlob( "Hi my name is Jarvis!" )
-            print command_textblob.tags
             print "The phrase has been saved"
 
     # This method will find a phrase that is synonymous to the incoming phrase, making it look like JARVIS has some random behavior
     # TODO: add synonymous phrase finding code below
     def find_synonymous_phrase( self, phrase ):
-        pass
+        command_textblob = TextBlob( "Vale" )
+        print command_textblob.tags
+        for tag in command_textblob.tags:
+            if tag[1] == "NNP":
+                print tag[0]
 
 # If this is run as a standalone program, tell the user that it is not meant to be that way
 if __name__ == '__main__':
