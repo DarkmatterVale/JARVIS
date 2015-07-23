@@ -10,7 +10,9 @@ import subprocess
 import os
 import json
 
-from textblob import TextBlob
+sys.path.insert( 0, os.getcwd() + r"\\modules\\" )
+
+from name_processor import NameIdentifier
 
 
 class Brain:
@@ -58,6 +60,7 @@ class Brain:
             return
         except:
             if self.handle_extensions( command ):
+                print "Hello Sir"
                 return
 
         # Otherwise, since the command is not recognized, add it to the list of recognzed command
@@ -88,7 +91,9 @@ class Brain:
 
     # This method will handle processing of the incoming command through modules
     def handle_extensions( self, phrase ):
-        pass
+        name_test = NameIdentifier()
+
+        return name_test.test()
 
 
 # If this is run as a standalone program, tell the user that it is not meant to be that way

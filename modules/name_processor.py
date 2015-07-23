@@ -9,7 +9,7 @@ This class will identify the following patterns in strings:
 Class information:
 - Version: 0.0.1
 - Stable: Yes
-- In-use: No
+- In-use: Yes
 
 """
 
@@ -25,6 +25,10 @@ class NameIdentifier:
             --False: JARVIS is NOT being spoken to
         """
 
+        pass
+
+
+    def test( self, command ):
         return self.process( command )
 
 
