@@ -19,18 +19,18 @@ class jarvis:
 
     def __init__( self, *args, **kwargs ):
         global jarvis_brain
-    
+
         jarvis_brain = brain()
 
     def run( self ):
         global jarvis_brain
-        
+
         while True:
             command = raw_input( "COMMAND: " )
-            
+
             jarvis_brain.test_incoming_command( command )
 
 if __name__ == '__main__':
     jarvis_main = jarvis()
-    
+
     jarvis_main.run()

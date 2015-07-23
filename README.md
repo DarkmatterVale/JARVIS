@@ -17,6 +17,14 @@ cd modules
 python setup.py
 ```
 
+## Dependencies included in project
+
+This project includes a number of dependencies. I have not developed these, and do not take any credit for them. Please read specific information about each library. Currently included libraries:
+
+- None
+
+Once again, I do not take any credit for these.
+
 ## Building
 No building should be required, so you do not need to worry about this. All you need to do is type the above command into terminal to start JARVIS, and voila! Your very own personal assistant!
 
