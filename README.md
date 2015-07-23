@@ -25,6 +25,10 @@ This project includes a number of dependencies. I have not developed these, and 
 
 Once again, I do not take any credit for these.
 
+## Current Status
+
+Currently, regex4dummies ( https://github.com/darkmattervale/regex4dummies ) is under development. This will assist JARVIS in understanding what you are saying. In addition, it will allow him to learn new things based on patterns identified in text. regex4dummies is planned to be completed by the end of summer 2015. Following its completion, work on JARVIS will resume.
+
 ## Building
 No building should be required, so you do not need to worry about this. All you need to do is type the above command into terminal to start JARVIS, and voila! Your very own personal assistant!
 
