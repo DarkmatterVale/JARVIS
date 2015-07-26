@@ -10,9 +10,7 @@ import subprocess
 import os
 import json
 
-sys.path.insert( 0, os.getcwd() + r"\\modules\\" )
-
-from name_processor import NameIdentifier
+from modules import *
 
 
 class Brain:
@@ -54,36 +52,23 @@ class Brain:
 
         # Otherwise, a set resposne is going to be loaded. In the future, this will be removed and just handle_extensions() will be called.
         try:
-            data = json.load( open( 'learning/phrase_list.json' ) )
-            print data[ command ][ 'response' ]
+            # Getting context from database
+            storage_adapter = JSONStorageAdapter()
+            context = storage_adapter.get_database()
+            context.append( [ "Good morning JARVIS", "Good morning sir" ] )
+            self.hold_conversation( "Good morning JARVIS", context )
 
             return
         except:
             if self.handle_extensions( command ):
-                print "Hello Sir"
                 return
 
         # Otherwise, since the command is not recognized, add it to the list of recognzed command
         print "Sorry sir, but I am still learning. I will save this phrase and learn it as time goes on. Is there a specific response you would like me to reply with?"
         save_phrase = raw_input( "COMMAND: " )
         if save_phrase != 'no':
-            # Opening file, to read and then to write
-            output = {}
-            try:
-                output = json.load( open( 'learning/phrase_list.json' ) )
-            except:
-                pass
-
-            file = open( 'learning/phrase_list.json', 'w' )
-
-            # Creating the entry for the file
-            output[ command ] = { "response" : save_phrase }
-
-            # Putting the entry in the file
-            json.dump( output, file )
-
-            # Closing the file since all I/O operations have been completed
-            file.close()
+            storage_adapter = JSONStorageAdapter()
+            storage_adapter.add_information( [command, save_phrase] )
 
             # Telling the user the phrase has been saved
             print "The phrase has been saved"
@@ -93,7 +78,26 @@ class Brain:
     def handle_extensions( self, phrase ):
         name_test = NameIdentifier()
 
-        return name_test.test()
+        if name_test.test( phrase ):
+            return True
+
+        return True
+
+
+    def hold_conversation( self, topic, previous_communication ):
+        """ This is a recursive method to hold a conversation given a single topic """
+
+        command = raw_input( "COMMAND: " )
+
+        if self.handle_extensions( command ):
+            response_generator = ResponseGenerator()
+            similarity_tester = SimilarityMatch()
+
+            response = response_generator.generate_response( command, previous_communication )
+
+            if similarity_tester.compare_topics( command, topic ):
+                previous_communication.append( [command, response] )
+                self.hold_conversation( topic, previous_communication )
 
 
 # If this is run as a standalone program, tell the user that it is not meant to be that way

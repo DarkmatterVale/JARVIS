@@ -16,19 +16,15 @@ Class information:
 class NameIdentifier:
 
 
-    def __init__( self, command ):
-        """
-        Initializer method that processes incoming command to see if someone is talking to JARVIS.
-
-        Output:
-            --True: JARVIS is being spoken to
-            --False: JARVIS is NOT being spoken to
-        """
+    def __init__( self ):
+        """ Blank constructor method """
 
         pass
 
 
     def test( self, command ):
+        """ Interface method to the process function """
+
         return self.process( command )
 
 
