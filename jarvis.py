@@ -39,7 +39,23 @@ class jarvis:
             jarvis_brain.test_incoming_command( command )
 
 
+    def train( self, training_data ):
+        """ train() trains JARVIS using provided data. This is just a conversation, where each "turn" in the conversation is sepatated by a comma """
+
+        global jarvis_brain
+
+        jarvis_brain.train( training_data )
+
+
 if __name__ == '__main__':
     jarvis_main = jarvis()
+
+    """dialogue = [
+        "What's first, then?",
+        "Best start with the highest and hardest while we've got the weather",
+        "The church tower?",
+        "Yes"
+    ]
+    jarvis_main.train( dialogue )"""
 
     jarvis_main.run()

@@ -23,6 +23,13 @@ class JSONStorageAdapter:
         pass
 
 
+    def train( self, training_data ):
+        """ This method trains JARVIS with a set of given commands and responses """
+
+        for index in xrange( 0, len( training_data ), 2 ):
+            self.add_information( [training_data[ index ], training_data[ index + 1 ]] )
+
+
     def get_database( self ):
         """ Returns the JSON database of commands """
 
@@ -47,8 +54,13 @@ class JSONStorageAdapter:
 
         file = open( 'learning/phrase_list.json', 'w' )
 
-        # Creating the entry for the file
-        output[ information[ 0 ] ] = { "response" : information[ 1 ] }
+        if type( information ) is list:
+            for item in information:
+                # Creating the entry for the file
+                output[ item[ 0 ] ] = { "response" : item[ 1 ] }
+        else:
+            # Creating the entry for the file
+            output[ information[ 0 ] ] = { "response" : information[ 1 ] }
 
         # Putting the entry in the file
         json.dump( output, file )

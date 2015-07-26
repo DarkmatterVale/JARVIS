@@ -25,6 +25,14 @@ class Brain:
         user_gone = False
 
 
+    def train( self, training_data ):
+        """ This method will train jarvis using given training data """
+
+        storage_adapter = JSONStorageAdapter()
+
+        storage_adapter.train( training_data )
+
+
     def test_incoming_command( self, command ):
         # Getting global variables
         global user_gone
@@ -51,17 +59,16 @@ class Brain:
             return
 
         # Otherwise, a set resposne is going to be loaded. In the future, this will be removed and just handle_extensions() will be called.
-        try:
-            # Getting context from database
-            storage_adapter = JSONStorageAdapter()
-            context = storage_adapter.get_database()
-            context.append( [ "Good morning JARVIS", "Good morning sir" ] )
-            self.hold_conversation( "Good morning JARVIS", context )
+        #try:
+        # Getting context from database
+        storage_adapter = JSONStorageAdapter()
+        context = storage_adapter.get_database()
+        self.hold_conversation( "", context )
 
-            return
-        except:
+        return
+        """except:
             if self.handle_extensions( command ):
-                return
+                return"""
 
         # Otherwise, since the command is not recognized, add it to the list of recognzed command
         print "Sorry sir, but I am still learning. I will save this phrase and learn it as time goes on. Is there a specific response you would like me to reply with?"
@@ -94,6 +101,9 @@ class Brain:
             similarity_tester = SimilarityMatch()
 
             response = response_generator.generate_response( command, previous_communication )
+
+            storage_adapter = JSONStorageAdapter()
+            storage_adapter.add_information( previous_communication )
 
             if similarity_tester.compare_topics( command, topic ):
                 previous_communication.append( [command, response] )
