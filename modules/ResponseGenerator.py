@@ -44,7 +44,7 @@ class ResponseGenerator:
 
             return response
 
-        closest_match = []
+        closest_match = [ [], 1 ]
         # Find closest match
         for communication in previous_communication:
             past_words = communication[ 0 ].split( ' ' )
@@ -52,11 +52,10 @@ class ResponseGenerator:
             current_words = command.split( ' ' )
 
             if len( list(set( current_words ) - set( past_words )) ) / ( len( current_words ) + 0.0 ) < 0.5:
-                closest_match = communication
+                if len( list(set( current_words ) - set( past_words )) ) / ( len( current_words ) + 0.0 ) < closest_match[ 1 ]:
+                    closest_match = [ communication, len( list(set( current_words ) - set( past_words )) ) / ( len( current_words ) + 0.0 ) ]
 
-                break
-
-        if closest_match == []:
+        if closest_match == [ [], 1 ]:
             print "Hmm....I'm a little confused. What should I respond with?"
 
             response = str( raw_input( "COMMAND: " ) )
@@ -65,9 +64,9 @@ class ResponseGenerator:
         # Compare closest match to its response -> generate new response based on new command and previous response
         general_response = []
 
-        response_words = closest_match[ 1 ].split( ' ' )
-        for response_word_index in range( 0, len( closest_match[ 1 ].split( ' ' ) ) ):
-            if response_words[ response_word_index ] == closest_match[ 0 ].split( ' ' )[ response_word_index ]:
+        response_words = closest_match[ 0 ][ 1 ].split( ' ' )
+        for response_word_index in range( 0, len( closest_match[ 0 ][ 1 ].split( ' ' ) ) ):
+            if response_words[ response_word_index ] == closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]:
                 general_response.append( response_word_index )
             else:
                 general_response.append( str( response_words[ response_word_index ] ) )
