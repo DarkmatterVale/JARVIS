@@ -21,7 +21,7 @@ python setup.py
 
 This project includes a number of dependencies. I have not developed these, and do not take any credit for them. Please read specific information about each library. Currently included libraries:
 
-- None
+- regex4dummies
 
 Once again, I do not take any credit for these.
 
@@ -36,4 +36,9 @@ No building should be required, so you do not need to worry about this. All you 
 If you would like to contribute, please see the CONTRIBUTING.txt file for more details.
 
 ## License
+
+All of the code in this project, unless specifically otherwise stated, is licensed under MIT License.
+
+All code is Copyright (c) 2015 Vale Tolpegin & Matthew Nguyen.
+
 Please check the LICENSE file for further information about the licensing of this code.

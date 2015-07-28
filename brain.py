@@ -10,7 +10,7 @@ import subprocess
 import os
 import json
 
-from modules import *
+from core import *
 
 
 class Brain:
