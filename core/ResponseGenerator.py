@@ -66,10 +66,12 @@ class ResponseGenerator:
 
         response_words = closest_match[ 0 ][ 1 ].split( ' ' )
         for response_word_index in range( 0, len( closest_match[ 0 ][ 1 ].split( ' ' ) ) ):
-            if response_words[ response_word_index ] == closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]:
-                general_response.append( response_word_index )
-            else:
-                general_response.append( str( response_words[ response_word_index ] ) )
+            #print closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]
+            if response_words[ response_word_index ] != '':
+                if response_words[ response_word_index ] == closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]:
+                    general_response.append( response_word_index )
+                else:
+                    general_response.append( str( response_words[ response_word_index ] ) )
 
         response = ""
         for individual_general_response in general_response:

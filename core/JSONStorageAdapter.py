@@ -33,7 +33,10 @@ class JSONStorageAdapter:
     def get_database( self ):
         """ Returns the JSON database of commands """
 
-        database = json.load( open( 'learning/phrase_list.json' ) )
+        try:
+            database = json.load( open( 'learning/phrase_list.json' ) )
+        except:
+            return {}
 
         database_list = []
         for entry in database:
