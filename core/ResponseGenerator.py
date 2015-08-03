@@ -12,6 +12,9 @@ Class information:
 """
 
 from JSONStorageAdapter import JSONStorageAdapter
+from regex4dummies import regex4dummies
+from regex4dummies import Toolkit
+import json
 
 
 class ResponseGenerator:
@@ -56,32 +59,64 @@ class ResponseGenerator:
                     closest_match = [ communication, len( list(set( current_words ) - set( past_words )) ) / ( len( current_words ) + 0.0 ) ]
 
         if closest_match == [ [], 1 ]:
-            print "Hmm....I'm a little confused. What should I respond with?"
+            response = self.test_understood_context( command, previous_communication )
 
-            response = str( raw_input( "COMMAND: " ) )
+            print response
+
+            return response
+        if len( closest_match[ 0 ][ 0 ].split( ' ' ) ) - len( command.split( ' ' ) ) < 2 and len( closest_match[ 0 ][ 0 ].split( ' ' ) ) - len( command.split( ' ' ) ) > -2:
+            # Compare closest match to its response -> generate new response based on new command and previous response
+            general_response = []
+
+            response_words = closest_match[ 0 ][ 1 ].split( ' ' )
+            for response_word_index in range( 0, len( closest_match[ 0 ][ 1 ].split( ' ' ) ) ):
+                #print closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]
+                if response_words[ response_word_index ] != '':
+                    if response_words[ response_word_index ] == closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]:
+                        general_response.append( response_word_index )
+                    else:
+                        general_response.append( str( response_words[ response_word_index ] ) )
+
+            response = ""
+            for individual_general_response in general_response:
+                if type( individual_general_response ) is int:
+                    response += command.split( ' ' )[ individual_general_response ] + " "
+                else:
+                    response += individual_general_response + " "
+
+            # Displaying what JARVIS will respond with
+            print response
+
+            # returning the response
             return response
 
-        # Compare closest match to its response -> generate new response based on new command and previous response
-        general_response = []
 
-        response_words = closest_match[ 0 ][ 1 ].split( ' ' )
-        for response_word_index in range( 0, len( closest_match[ 0 ][ 1 ].split( ' ' ) ) ):
-            #print closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]
-            if response_words[ response_word_index ] != '':
-                if response_words[ response_word_index ] == closest_match[ 0 ][ 0 ].split( ' ' )[ response_word_index ]:
-                    general_response.append( response_word_index )
-                else:
-                    general_response.append( str( response_words[ response_word_index ] ) )
+    def get_rules( self ):
+        """ Get the contextual rules applied to text """
 
-        response = ""
-        for individual_general_response in general_response:
-            if type( individual_general_response ) is int:
-                response += command.split( ' ' )[ individual_general_response ] + " "
-            else:
-                response += individual_general_response + " "
+        try:
+            database = json.load( open( 'learning/rules.json' ) )
 
-        # Displaying what JARVIS will respond with
-        print response
+            return database
+        except:
+            return {}
 
-        # returning the response
-        return response
+
+    def get_information( self, text ):
+        """ Returns the dependencies and tokenized text """
+
+        tool_kit = Toolkit()
+
+        return [ tool_kit.tokenize( text, "pattern" ), tool_kit.find_dependencies( text, "pattern" ) ]
+
+
+    def test_understood_context( self, new_text, previous_communication ):
+        """ Tests to determine what to use to include in context """
+
+        rules = self.get_rules()
+        new_information = self.get_information( new_text )
+
+        for rule in rules:
+            pass
+
+        return new_information
