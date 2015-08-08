@@ -39,6 +39,6 @@ If you would like to contribute, please see the CONTRIBUTING.txt file for more d
 
 All of the code in this project, unless specifically otherwise stated, is licensed under MIT License.
 
-All code is Copyright (c) 2015 Vale Tolpegin & Matthew Nguyen.
+All code is Copyright (c) 2015 Vale Tolpegin & Matthew Nguyen. All rights reserved.
 
 Please check the LICENSE file for further information about the licensing of this code.
