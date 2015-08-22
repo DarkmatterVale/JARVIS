@@ -26,8 +26,8 @@ class JSONStorageAdapter:
     def train( self, training_data ):
         """ This method trains JARVIS with a set of given commands and responses """
 
-        for index in xrange( 0, len( training_data ), 2 ):
-            self.add_information( [training_data[ index ], training_data[ index + 1 ]] )
+        for index in xrange( 0, len( training_data ) - 1, 2 ):
+            self.add_information( [[training_data[ index ], training_data[ index + 1 ]]] )
 
 
     def get_database( self ):

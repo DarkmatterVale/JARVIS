@@ -50,12 +50,16 @@ class jarvis:
 if __name__ == '__main__':
     jarvis_main = jarvis()
 
-    """dialogue = [
-        "What's first, then?",
-        "Best start with the highest and hardest while we've got the weather",
-        "The church tower?",
-        "Yes"
-    ]
-    jarvis_main.train( dialogue )"""
+    dialogue = [
+        "Hello",
+        "Hi",
+        "How are you doing?",
+        "Good. How about you?",
+        "Good.",
+        "What are you doing?",
+        "Work.",
+        "Sounds like a lot of fun",
+        "It is a lot of fun" ]
+    jarvis_main.train( dialogue )
 
     jarvis_main.run()

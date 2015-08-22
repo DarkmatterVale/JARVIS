@@ -59,11 +59,20 @@ class ResponseGenerator:
                     closest_match = [ communication, len( list(set( current_words ) - set( past_words )) ) / ( len( current_words ) + 0.0 ) ]
 
         if closest_match == [ [], 1 ]:
-            response = self.test_understood_context( command, previous_communication )
+            print "I don't know what to say. What should I respond with?"
+            response = str( raw_input( "COMMAND: " ) )
 
             print response
 
             return response
+        elif type( closest_match[ 0 ] ) != type( "string" ):
+            print "I don't know what to say. What should I respond with?"
+            response = str( raw_input( "COMMAND: " ) )
+
+            print response
+
+            return response
+
         if len( closest_match[ 0 ][ 0 ].split( ' ' ) ) - len( command.split( ' ' ) ) < 2 and len( closest_match[ 0 ][ 0 ].split( ' ' ) ) - len( command.split( ' ' ) ) > -2:
             # Compare closest match to its response -> generate new response based on new command and previous response
             general_response = []

@@ -21,7 +21,7 @@ python setup.py
 
 This project includes a number of dependencies. I have not developed these, and do not take any credit for them. Please read specific information about each library. Currently included libraries:
 
-- regex4dummies
+- None
 
 Once again, I do not take any credit for these.
 

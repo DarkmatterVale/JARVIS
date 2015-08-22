@@ -38,7 +38,7 @@ class Brain:
         global user_gone
 
         # If the user was previously gone, but has started the conversation back up, greet him/her
-        # TODO: convert hardcoded gretting to something more dynamic
+        # TODO: convert hardcoded greeting to something more dynamic
         if user_gone:
             print "Hello again sir"
 
@@ -103,7 +103,7 @@ class Brain:
             response = response_generator.generate_response( command, previous_communication )
 
             storage_adapter = JSONStorageAdapter()
-            storage_adapter.add_information( previous_communication )
+            storage_adapter.add_information( [ [ command, response ] ] )
 
             if similarity_tester.compare_topics( command, topic ):
                 previous_communication.append( [command, response] )
