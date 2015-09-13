@@ -1,3 +1,8 @@
+""" Main JARVIS class """
+
+from core import *
+
+
 class jarvis:
 
     def __init__( self, *args, **kwargs ):
@@ -8,12 +13,20 @@ class jarvis:
     def run_jarvis( self ):
         """ Main method.....Interfaces with Jarvis' brain, gets commands and displays responses """
 
+        jarvis_brain = brain()
+
         while True:
             user_input = raw_input( "Human: " )
 
-            # response = TODO: Interface to brain & generate a response
+            # Leave if the user is done
+            if user_input == "quit":
+                exit( 0 )
 
-            # print response
+            # Generate response
+            response = jarvis_brain.generate_response( user_input )
+
+            # Print response
+            print response
 
 
 if __name__ == '__main__':
