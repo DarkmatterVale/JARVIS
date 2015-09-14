@@ -36,8 +36,8 @@ class brain:
         global command_commander
         global contextengine
 
-        if ( contextengine.identify_category( user_input ) == "command" ):
+        if ( contextengine.categorize( user_input ) == "command" or contextengine.categorize( user_input ) == "question" ):
             return command_commander.select_command( user_input )
-        else:
+        elif ( contextengine.categorize( user_input ) == "chat" ):
             return "Whoops...Still learning how to talk to people....Come back soon for some more information!"
             #return command_commander.get_response( user_input )
