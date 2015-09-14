@@ -34,6 +34,6 @@ class CommandIdentifier:
                 selected_commnad_index = command_index
 
         if selected_command_keywords == 0:
-            return "Ummm...I don't know how to do that...Sorry"
+            return "", False
         else:
-            return commands[ selected_command_index ].respond( user_input, [] )
+            return commands[ selected_command_index ].respond( user_input, [] ), True
