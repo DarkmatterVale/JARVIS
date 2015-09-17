@@ -12,7 +12,7 @@ class JarvisChatBot:
             storage_adapter="chatterbot.adapters.storage.JsonDatabaseAdapter",
             logic_adapter="chatterbot.adapters.logic.ClosestMatchAdapter",
             io_adapter="chatterbot.adapters.io.TerminalAdapter",
-            database="../database.db")
+            database="database.db")
 
 
     def generate_response( self, user_input ):

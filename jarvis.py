@@ -1,65 +1,36 @@
-__author__ = 'Vale Tolpegin & Matthew Nguyen'
+""" Main JARVIS class """
 
-# NOTE: Currently, only CLI will be implemented so STT engines and other class initialization will not be required
-
-# Throughout the code in the main program, the following needs to be accomplished:
-# 1: Initialize brain and other classes. This will allow JARVIS to interpret commands and access STT associated functions
-# 2: In an infinite loop:
-#   a: Get user input
-#   b: Parse that user input for set commands such as shutdown, restart, etc
-#   c: Compare that input to previous input/database of phrases and words and apply learning logic (see logic_basic_learning.txt)
-
-import sys
-import subprocess
-import os
-
-from brain import Brain
+from core import *
 
 
-class jarvis:
-    """ This is the main class for JARVIS """
-
-    global jarvis_brain
-
+class Jarvis:
 
     def __init__( self, *args, **kwargs ):
-        global jarvis_brain
+        """ Blank constructor method """
 
-        jarvis_brain = Brain()
+        pass
 
 
-    def run( self ):
-        """ This method will handle getting input and relaying that input to JARVIS' brain """
+    def run_jarvis( self ):
+        """ Main method.....Interfaces with Jarvis' brain and displays responses """
 
-        global jarvis_brain
+        jarvis_brain = brain()
 
         while True:
-            command = raw_input( "COMMAND: " )
+            user_input = raw_input( "Human: " )
 
-            jarvis_brain.test_incoming_command( command )
+            # Leave if the user is done
+            if user_input == "quit":
+                exit( 0 )
 
+            # Generate response
+            response = jarvis_brain.generate_response( user_input )
 
-    def train( self, training_data ):
-        """ train() trains JARVIS using provided data. This is just a conversation, where each "turn" in the conversation is sepatated by a comma """
-
-        global jarvis_brain
-
-        jarvis_brain.train( training_data )
+            # Print response
+            print response
 
 
 if __name__ == '__main__':
-    jarvis_main = jarvis()
+    jarvis_app = Jarvis()
 
-    dialogue = [
-        "Hello",
-        "Hi",
-        "How are you doing?",
-        "Good. How about you?",
-        "Good.",
-        "What are you doing?",
-        "Work.",
-        "Sounds like a lot of fun",
-        "It is a lot of fun" ]
-    jarvis_main.train( dialogue )
-
-    jarvis_main.run()
+    jarvis_app.run_jarvis()
