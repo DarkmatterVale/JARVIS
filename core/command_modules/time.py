@@ -26,10 +26,9 @@ class Time:
 
 
     def respond( self, command, information ):
-        """ Returns the current time
-
-        Outputs/System variable changes:
-        - returns time"""
+        """
+        Returns the current time
+        """
 
         # Below code is tentative...will be updated as soon as some work is done on the context engine
         if " in" in command:

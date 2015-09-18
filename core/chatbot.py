@@ -11,7 +11,7 @@ class JarvisChatBot:
         jarvis_chatterbot = ChatBot("Jarvis",
             storage_adapter="chatterbot.adapters.storage.JsonDatabaseAdapter",
             logic_adapter="chatterbot.adapters.logic.ClosestMatchAdapter",
-            io_adapter="chatterbot.adapters.io.TerminalAdapter",
+            io_adapter="chatterbot.adapters.io.NoOutputAdapter",
             database="database.db")
 
 
