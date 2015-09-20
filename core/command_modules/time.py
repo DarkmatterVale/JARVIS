@@ -27,13 +27,28 @@ class Time:
 
     def respond( self, command, information ):
         """
-        Returns the current time
+        Returns the time
         """
 
-        # Below code is tentative...will be updated as soon as some work is done on the context engine
-        if " in" in command:
-            return "In how many minutes?", True
-        elif " is" in command:
-            return "It is currently " + datetime.datetime.now().strftime("%H:%M:%S"), False
-        elif " minutes" in command or " minute" in command:
-            return "It will be " + datetime.datetime.now().strftime("%H") + ":" + str( int( datetime.datetime.now().strftime("%M") ) + int( command.split( ' ' )[ 0 ] ) ) + ":" + datetime.datetime.now().strftime("%S"), False
+        for word_index in range( 0, len( information[ 0 ][ "pos_sentence" ] ) ):
+            if "in" in information[ 0 ][ "pos_sentence" ][ word_index ]:
+                if "second" in information[ 0 ][ "pos_sentence" ][ word_index + 2 ][ 0 ]:
+                    return "It will be " + self.addSecs( datetime.datetime.now().time(), int( information[ 0 ][ "pos_sentence" ][ word_index + 1 ][ 0 ] ) ), False
+                elif "minute" in information[ 0 ][ "pos_sentence" ][ word_index + 2 ][ 0 ]:
+                    return "It will be " + self.addSecs( datetime.datetime.now().time(), 60 * int( information[ 0 ][ "pos_sentence" ][ word_index + 1 ][ 0 ] ) ), False
+                elif "hour" in information[ 0 ][ "pos_sentence" ][ word_index + 2 ][ 0 ]:
+                    return "It will be " + self.addSecs( datetime.datetime.now().time(), 3600 * int( information[ 0 ][ "pos_sentence" ][ word_index + 1 ][ 0 ] ) ), False
+
+        return "It is currently " + datetime.datetime.now().strftime("%H:%M:%S"), False
+
+
+    def addSecs(self, tm, secs):
+        """
+        Adds a certain number of seconds on to the clock.
+        This lets JARVIS predict the time in the future.
+        """
+
+        fulldate = datetime.datetime(1900, 1, 1, tm.hour, tm.minute, tm.second)
+        fulldate = fulldate + datetime.timedelta(seconds=secs)
+
+        return fulldate.strftime("%H:%M:%S")

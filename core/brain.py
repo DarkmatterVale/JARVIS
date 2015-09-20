@@ -43,7 +43,7 @@ class brain:
         # If the conversation is multiple pieces of dialog long
         if command_commander.use_previous_context():
             # Generate a response from the most suited command
-            response, is_used = command_commander.select_command( user_input )
+            response, is_used = command_commander.select_command( user_input, contextengine.identify_important_information( user_input ) )
 
             # If that response is valid and should be displayed
             if is_used:
@@ -54,7 +54,7 @@ class brain:
                 return chatter_bot.generate_response( user_input )
         else:
             if ( contextengine.categorize( user_input ) == "command" or contextengine.categorize( user_input ) == "question" ):
-                response, is_used = command_commander.select_command( user_input )
+                response, is_used = command_commander.select_command( user_input, contextengine.identify_important_information( user_input ) )
 
                 if is_used:
                     return response
