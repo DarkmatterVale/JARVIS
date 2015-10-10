@@ -31,7 +31,7 @@ class CommandIdentifier:
         return apply_previous_context
 
 
-    def select_command( self, user_input, command_information ):
+    def select_command( self, user_input, conversation, command_information ):
         """ Determine which command should be executed & execute that command """
 
         global commands
@@ -40,7 +40,7 @@ class CommandIdentifier:
 
         # If a module is holding a conversation & needs to be called again
         if apply_previous_context:
-            response, apply_previous_context = commands[ previous_context_index ].respond( user_input, command_information )
+            response, apply_previous_context = commands[ previous_context_index ].respond( user_input, conversation, command_information )
 
             return response, True
         else:
@@ -62,7 +62,7 @@ class CommandIdentifier:
             if selected_command_keywords == 0:
                 return "", False
             else:
-                response, apply_previous_context = commands[ selected_command_index ].respond( user_input, command_information )
+                response, apply_previous_context = commands[ selected_command_index ].respond( user_input, conversation, command_information )
                 previous_context_index = selected_command_index
 
                 return response, True

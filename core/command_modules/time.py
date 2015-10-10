@@ -25,7 +25,7 @@ class Time:
         return [ "time" ]
 
 
-    def respond( self, command, information ):
+    def respond( self, command, conversation, information ):
         """
         Returns the time
         """

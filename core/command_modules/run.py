@@ -7,6 +7,7 @@ Module information:
 
 """
 
+
 class RunPrograms:
 
     def __init__( self ):
@@ -21,7 +22,7 @@ class RunPrograms:
         return [ "run", "program" ]
 
 
-    def run_code( self, user_input ):
+    def run_code( self, conversation, user_input ):
         """ Runs the code the user would like to be run """
 
         return "Running the code now..."
