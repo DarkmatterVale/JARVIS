@@ -8,10 +8,6 @@ python jarvis.py
 
 Please report any bugs or feature requests here on the Github issue tracker.
 
-## Dependencies
-
-At the moment, there are no dependencies.
-
 ## Dependencies included in project
 
 This project includes a number of dependencies. I have not developed these, and do not take any credit for them. Please read specific information about each library. Currently included libraries:
