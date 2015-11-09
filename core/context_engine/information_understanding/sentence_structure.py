@@ -6,21 +6,18 @@ Class information:
 """
 
 
-from regex4dummies import regex4dummies
+from regex4dummies import Toolkit
 import nltk
 
 
 class StructureIdentifier:
-    global svo_triplet_identifier
 
     def __init__( self, *args, **kwargs ):
         """
         Constructor method
         """
 
-        global svo_triplet_identifier
-
-        svo_triplet_identifier = regex4dummies()
+        self.svo_triplet_identifier = Toolkit()
 
 
     def identify_structure( self, user_input ):
@@ -28,9 +25,10 @@ class StructureIdentifier:
         Returns the grammatical structure of the input
         """
 
-        global svo_triplet_identifier
-
         # Identify the structure of the incoming text
-        #svo_triplets = svo_triplet_identifier.
+        svo_triplet = self.svo_triplet_identifier.find_dependencies( text=user_input, parser="pattern" )
+        pos_sentence = nltk.pos_tag( nltk.word_tokenize( user_input ) )
 
-        return { "pos_sentence" : nltk.pos_tag( nltk.word_tokenize( user_input ) ) }
+        # Return the structure
+        return { "pos_sentence" : pos_sentence,
+                    "svo" : svo_triplet }

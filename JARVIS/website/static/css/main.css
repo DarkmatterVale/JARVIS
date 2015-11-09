@@ -11,52 +11,6 @@ div.container {
   padding-top: 0.1%;
 }
 
-h2 {
-  color: #616161;
-}
-
-p {
-  font-size: 1.25rem;
-  color: #616161;
-}
-
-nav {
-    background-color: #fff;
-    width: 100%;
-    font-weight: 300;
-}
-
-nav .nav-wrapper {
-    padding: 0 15px;
-}
-
-nav .right-nav {
-    float: right;
-}
-
-nav a {
-  color: #000000;
-  padding-left: 26%;
-}
-
-nav .large-font {
-  font-size: 2.4rem;
-}
-
-footer.page-footer {
-    margin-top: 20px;
-    padding-top: 20px;
-    background-color: #7C8B71;
-}
-
-footer.page-footer .footer-copyright {
-    overflow: hidden;
-    height: 50px;
-    line-height: 50px;
-    color: rgba(255, 255, 255, 0.8);
-    background-color: rgba(51, 51, 51, 0.08)
-}
-
 .middle-login {
   padding-top: 19%;
   padding-left: 35%;
@@ -114,7 +68,16 @@ footer.page-footer .footer-copyright {
 .title {
   font-family: roboto;
   font-weight: bold;
-  font-size: 6rem;
-  padding-left: 18%;
+  font-size: 7rem;
+  padding-left: 15%;
+  padding-top: 13.5%;
+  color: #0080FF;
+}
+
+.subtitle {
+  font-family: roboto;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding-left: 9%;
   color: #0080FF;
 }

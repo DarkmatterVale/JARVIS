@@ -10,14 +10,11 @@ Categorizes the user input to determine whether the user is:
 import nltk
 
 class InputCategorizer:
-    global ignore_words
 
     def __init__( self ):
         """ Initializer """
 
-        global ignore_words
-
-        ignore_words = [
+        self.ignore_words = [
             "JARVIS"
         ]
 
@@ -49,10 +46,8 @@ class InputCategorizer:
     def normalize_input( self, text ):
         """ Normalizes the text so that unnecessary information is removed, grammar corrected, etc """
 
-        global ignore_words
-
         # Removing words to ignore
-        for word_to_ignore in ignore_words:
+        for word_to_ignore in self.ignore_words:
             for word_index in range( 0, len( text.split( ' ' ) ) ):
                 if word_to_ignore in text.split( ' ' )[ word_index ]:
                     text = ' '.join( text.split( ' ' )[ : word_index ] ) + ' '.join( text.split( ' ' )[ word_index + 1 : ] )
