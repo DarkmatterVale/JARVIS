@@ -8,13 +8,11 @@ class Jarvis:
     def __init__( self, *args, **kwargs ):
         """ Blank constructor method """
 
-        pass
+        self.jarvis_brain = brain()
 
 
     def run_jarvis( self ):
         """ Main method.....Interfaces with Jarvis' brain and displays responses """
-
-        jarvis_brain = brain()
 
         while True:
             user_input = raw_input( "Human: " )
@@ -24,10 +22,19 @@ class Jarvis:
                 exit( 0 )
 
             # Generate response
-            response = jarvis_brain.generate_response( user_input )
+            response = self.jarvis_brain.generate_response( user_input )
 
             # Print response
             print response
+
+
+    def get_response( self, user_input ):
+        """
+        Returns the response generated from
+        the passed user_input variable
+        """
+
+        return self.jarvis_brain.generate_response( user_input )
 
 
 if __name__ == '__main__':

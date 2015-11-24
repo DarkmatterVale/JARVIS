@@ -20,11 +20,21 @@
       <h1 class="title">JARVIS</h1>
     </div>
 
-    <!--<br><br><br>
+    <p>{{ YOLO }}</p>
 
-    <div class="container">
-      <h5 class="subtitle">The world's next generation Personal Assistant</h5>
-    </div>-->
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <form action="{% url 'get_response' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="choice" value="Human: " />
+      <input type="submit" value="Submit" />
+    </form>
   </div>
 </body>
 
