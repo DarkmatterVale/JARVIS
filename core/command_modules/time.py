@@ -25,6 +25,21 @@ class Time:
         return [ "time" ]
 
 
+    def should_respond( self, command, conversation, information ):
+        """
+        Determines whether the incoming statement should
+        be answered using this command module
+        """
+
+        print command
+        print ""
+        print conversation
+        print ""
+        print information
+
+        return False
+
+
     def respond( self, command, conversation, information ):
         """
         Returns the time

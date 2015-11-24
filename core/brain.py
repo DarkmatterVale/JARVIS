@@ -30,31 +30,21 @@ class brain:
         Outputs:
         - returns response"""
 
-        # If the conversation is multiple pieces of dialog long
-        if self.command_commander.use_previous_context():
-            # Generate a response from the most suited command
+        if ( self.contextengine.categorize( user_input ) == "command" or self.contextengine.categorize( user_input ) == "question" ):
             response, is_used = self.command_commander.select_command( user_input, self.conversation, self.contextengine.identify_important_information( user_input ) )
 
-            # If that response is valid and should be displayed
             if is_used:
                 # Updating conversation
                 self.conversation.append( [ user_input, response ] )
 
-                # Return the generated response
                 return response
             else:
                 # Updating conversation
-                self.conversation = []
+                self.conversation.append( [ user_input, "" ] )
 
-                # Otherwise, return a chat response
                 return self.chatter_bot.generate_response( user_input )
-        else:
-            if ( self.contextengine.categorize( user_input ) == "command" or self.contextengine.categorize( user_input ) == "question" ):
-                response, is_used = self.command_commander.select_command( user_input, self.conversation, self.contextengine.identify_important_information( user_input ) )
+        elif ( self.contextengine.categorize( user_input ) == "chat" ):
+            # Updating conversation
+            self.conversation.append( [ user_input, "" ] )
 
-                if is_used:
-                    return response
-                else:
-                    return self.chatter_bot.generate_response( user_input )
-            elif ( self.contextengine.categorize( user_input ) == "chat" ):
-                return self.chatter_bot.generate_response( user_input )
+            return self.chatter_bot.generate_response( user_input )
