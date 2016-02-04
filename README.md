@@ -1,15 +1,8 @@
 # JARVIS
 
-.. image:: https://travis-ci.org/DarkmatterVale/JARVIS.svg?branch=master
-    :target: https://travis-ci.org/DarkmatterVale/JARVIS
-
-.. image:: https://codeclimate.com/github/DarkmatterVale/JARVIS/badges/gpa.svg
-    :target: https://codeclimate.com/github/DarkmatterVale/JARVIS
-    :alt: Code Climate
-
-.. image:: https://codeclimate.com/github/DarkmatterVale/JARVIS/badges/issue_count.svg
-    :target: https://codeclimate.com/github/DarkmatterVale/JARVIS
-    :alt: Issue Count
+![Build Status](https://travis-ci.org/DarkmatterVale/JARVIS.svg?branch=master)
+[![Code Climate](https://codeclimate.com/github/DarkmatterVale/regex4dummies/badges/gpa.svg)](https://codeclimate.com/github/DarkmatterVale/JARVIS)
+[![Issue Count](https://codeclimate.com/github/DarkmatterVale/JARVIS/badges/issue_count.svg)](https://codeclimate.com/github/DarkmatterVale/JARVIS)
 
 JARVIS is a personal assistant that can learn and interpret your commands. He should be able to make your life more productive, and he should not annoying.
 
