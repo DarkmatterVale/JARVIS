@@ -1,10 +1,17 @@
 # JARVIS
 
-JARVIS is a personal assistant that can learn and interpret your commands. He should be able to make your life more productive, and he should not annoying. He is simple to use, and all that is required is to type the following command once you cd into the directory:
+.. image:: https://travis-ci.org/DarkmatterVale/JARVIS.svg?branch=master
+    :target: https://travis-ci.org/DarkmatterVale/JARVIS
 
-```
-python jarvis.py
-```
+.. image:: https://codeclimate.com/github/DarkmatterVale/JARVIS/badges/gpa.svg
+    :target: https://codeclimate.com/github/DarkmatterVale/JARVIS
+    :alt: Code Climate
+
+.. image:: https://codeclimate.com/github/DarkmatterVale/JARVIS/badges/issue_count.svg
+    :target: https://codeclimate.com/github/DarkmatterVale/JARVIS
+    :alt: Issue Count
+
+JARVIS is a personal assistant that can learn and interpret your commands. He should be able to make your life more productive, and he should not annoying.
 
 Please report any bugs or feature requests here on the Github issue tracker.
 
@@ -15,6 +22,10 @@ To install JARVIS, use pip.
 ```
 pip install JARVIS
 ```
+
+## Features
+
+We are still creating the foundation of the project, so the frontend has not been fully developed yet.
 
 ## Contributing
 
