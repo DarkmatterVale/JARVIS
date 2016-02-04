@@ -18,7 +18,7 @@ Once again, I do not take any credit for these.
 
 ## Current Status
 
-Currently, regex4dummies ( https://github.com/darkmattervale/regex4dummies ) is under development. This will assist JARVIS in understanding what you are saying. In addition, it will allow him to learn new things based on patterns identified in text. regex4dummies is planned to be completed by the end of summer 2015. Following its completion, work on JARVIS will resume.
+I have postoned working on this project since I have been working on ChatterBot. Hopefully, much of this project's functionality can be built into chatterbot as extensions.
 
 ## Building
 
