@@ -55,7 +55,7 @@ setup(
     packages = find_packages(),
 
     platforms=["any"],
-    install_requires = ['chatterbot'],
+    install_requires = ['ChatterBot'],
 
     keywords = [ 'NLP', 'assistant', 'intelligent', 'AI' ],
 )
