@@ -2,6 +2,7 @@ from brain import *
 
 
 class JARVIS:
+
     def __init__(self, *args, **kwargs):
         """
         Constructor method
@@ -12,4 +13,4 @@ class JARVIS:
         """
         Returns the response generated from the passed user_input variable
         """
-        return self.jarvis_brain.generate_response( user_input )
+        return self.jarvis_brain.generate_response(user_input)
