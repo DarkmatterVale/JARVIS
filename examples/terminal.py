@@ -1,4 +1,4 @@
-from jarvis import *
+from jarvis import JARVIS
 
 my_jarvis = JARVIS()
 
@@ -10,7 +10,7 @@ while True:
         exit(0)
 
     # Generate response
-    response = my_jarvis.get_response(user_input)
+    response = my_jarvis.process(user_input)
 
     # Print response
     print response

@@ -3,7 +3,7 @@ from chatbot import JarvisChatBot
 from context_engine import *
 
 
-class brain:
+class Brain:
     """
     Main brain for JARVIS
     """

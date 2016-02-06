@@ -1,4 +1,4 @@
-from command_modules import *
+from modules import *
 
 
 class CommandIdentifier:
@@ -8,7 +8,6 @@ class CommandIdentifier:
         self.commands = [
             Time()
         ]
-
 
     def select_command(self, user_input, conversation, command_information):
         """

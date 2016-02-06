@@ -1,15 +1,12 @@
-from brain import *
+from brain import Brain
 
 
 class JARVIS:
 
     def __init__(self, *args, **kwargs):
-        """
-        Constructor method
-        """
-        self.jarvis_brain = brain()
+        self.jarvis_brain = Brain()
 
-    def get_response(self, user_input):
+    def process(self, user_input):
         """
         Returns the response generated from the passed user_input variable
         """
