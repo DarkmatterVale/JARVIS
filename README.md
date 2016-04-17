@@ -24,6 +24,8 @@ We are still creating the foundation of the project, so the frontend has not bee
 
 If you would like to contribute, please see the CONTRIBUTING.txt file for more details.
 
+At the moment this library is not being maintained; I do not have the time to commit to it.
+
 ## License
 
 All of the code in this project, unless specifically otherwise stated, is licensed under MIT License.
